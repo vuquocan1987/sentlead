@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>File Upload</title>
+  </head>
+  <body>
+    <div class="upload">
+      <h1>1.File Upload</h1>
+      <form method="POST" action="" enctype="multipart/form-data">
+        <p><input type="file" name="file" accept=".csv, .xlsx"></p>
+        <p><input type="submit" value="Submit"></p>
+      </form>
+    </div>
+    <hr/>
+    <div class="file">
+      <h1>2.Current File Will Be Sent</h1>
+      {% for file in files %}
+        <p>{{ url_for('upload', filename=file) }}</p> 
+      {% endfor %}
+    </div>
+    <div class="reset">
+      <form method="POST" action="/delete">
+        <p><input type="submit" value="Reset"></p>
+      </form>
+    </div>
+    <hr/>
+    <div class="sendFile">
+      <h1>3.Send File</h1>
+      <form method="POST" action="/sendFile">
+        <p><input type="submit" value="Send"></p>
+      </form>
+    </div>
+
+
+  
+  </body>
+</html>
